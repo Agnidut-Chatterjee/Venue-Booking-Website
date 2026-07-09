@@ -1,0 +1,642 @@
+
+.home-container {
+  
+  background: linear-gradient(to bottom, #fff7ed, #f0fdf4);
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+
+.hero-header {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero-header p {
+  font-size: 1.125rem;
+  color: #374151;
+}
+
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.search-input {
+  border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+  width: 50%;
+  max-width: 500px;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #f97316;
+}
+
+.search-btn {
+  background-color: #f97316;
+  color: white;
+  padding: 0 1.5rem;
+  border: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+  background-color: #ea580c;
+}
+
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Venue Card */
+.venue-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden; /* Keeps the image inside the rounded corners */
+}
+
+.venue-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.venue-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Prevents image stretching */
+  display: block;
+}
+
+.venue-info {
+  padding: 1.25rem;
+}
+
+.venue-info h3 {
+  font-size: 1.25rem;
+  color: #ea580c;
+  margin: 0 0 0.5rem 0;
+}
+
+.venue-info .location {
+  color: #4b5563;
+  margin: 0 0 0.5rem 0;
+}
+
+.venue-info .price {
+  color: #16a34a;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.book-btn {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.book-btn:hover {
+  background-color: #16a34a;
+}
+
+/* Footer */
+.home-footer {
+  text-align: center;
+  padding: 2rem;
+  color: #4b5563;
+  margin-top: 2rem;
+}
+
+/* App.css */
+
+/* Centers the card on the screen with a gradient background */
+.Login-Register-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #fff7ed, #f0fdf4);
+}
+
+/* THE FIX: The Flexbox Column */
+.Login-Register-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 24rem; /* Equivalent to w-96 */
+  
+  /* This is what stacks your inputs vertically! */
+  display: flex; 
+  flex-direction: column; 
+}
+
+.Login-Register-card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ea580c;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling the inputs so they stretch across the column */
+.Login-Register-input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  box-sizing: border-box; /* Ensures padding doesn't break the width */
+}
+
+/* Styling the login button */
+.Login-Register-btn {
+  background-color: #22c55e;
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.Login-Register-btn:hover {
+  background-color: #16a34a;
+}
+/* =========================================
+   SIDE PANEL (HAMBURGER MENU) STYLES
+   ========================================= */
+
+.atithi-side-panel {
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 300px;
+  height: 100vh;
+  background-color: #991b1b; 
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3); 
+  transition: right 0.3s ease-in-out; 
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; 
+}
+
+/* NOTICE the !important flag. This forces the panel to open no matter what! */
+.atithi-side-panel.atithi-open {
+  right: 0 !important; 
+}
+
+/* Dark Background Overlay */
+.atithi-panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.atithi-panel-overlay.atithi-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Profile Styling inside Panel */
+.atithi-profile-section {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.atithi-circular-photo {
+  width: 140px; 
+  height: 140px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 4px solid #FFD700; 
+  margin-bottom: 15px;
+  /* THE MAGIC FIX FOR OVAL PICTURES: */
+  flex-shrink: 0; 
+  aspect-ratio: 1 / 1; 
+}
+
+.atithi-welcome-text {
+  margin: 0;
+  color: #FFD700; 
+  font-weight: 600;
+}
+
+/* The Golden Horizontal Line */
+.atithi-golden-line {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #FFD700, transparent);
+  margin: 10px 0 30px 0; 
+  width: 100%;
+}
+
+/* Menu Links inside Panel */
+.atithi-panel-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.atithi-panel-links li {
+  margin-bottom: 15px;
+}
+
+.atithi-panel-links a {
+  text-decoration: none;
+  color: #ffffff; 
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.atithi-panel-links a:hover {
+  background-color: #7f1d1d; 
+  color: #FFD700; 
+  padding-left: 15px; 
+}
+
+/* Close Button (X) */
+.atithi-close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 32px; 
+  cursor: pointer;
+  color: #FFD700; 
+  transition: transform 0.2s;
+}
+
+.atithi-close-btn:hover {
+  color: #ffffff;
+  transform: scale(1.1); 
+}
+
+/* --- POPUP MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* Darkens the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.modal-layout {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.modal-image {
+  flex: 1;
+  min-width: 300px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.modal-details {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-details h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.modal-type-badge {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #333;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.modal-address {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.modal-price {
+  color: #ff5722; /* Amazon orange-ish color */
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.modal-amenities {
+  list-style-type: none;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.modal-contact {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.modal-contact h4 {
+  margin: 0 0 10px 0;
+}
+
+.modal-contact p {
+  margin: 5px 0;
+}
+
+.book-btn-large {
+  background-color: #28a745;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.2s;
+}
+
+.book-btn-large:hover {
+  background-color: #218838;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- NAVBAR BUTTON STYLES --- */
+.nav-btn {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 8px 16px;
+  margin: 0 8px;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-btn:hover {
+  opacity: 0.9;
+}
+
+.nav-btn-primary {
+  background-color: #F97316;
+  color: #fff;
+  border: none;
+}
+
+.nav-btn-admin {
+  background-color: #1f2937;
+  color: #fff;
+  border: none;
+}
+
+.nav-btn-logout {
+  background-color: #dc2626;
+  color: #fff;
+  border: none;
+}
+
+/* =========================================
+   USER PROFILE COMPONENT STYLES
+   ========================================= */
+
+.profile-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.profile-container .profile-loading {
+  text-align: center;
+  margin-top: 50px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.profile-container .profile-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.profile-container .profile-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.profile-container .profile-header p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.profile-container .profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-container .form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-container .form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.profile-container .form-group.full-width {
+  width: 100%;
+}
+
+.profile-container .form-group label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.profile-container .form-group input,
+.profile-container .form-group textarea {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.profile-container .form-group input:focus,
+.profile-container .form-group textarea:focus {
+  outline: none;
+  border-color: #0066ff;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+.profile-container .form-group textarea {
+  resize: vertical;
+}
+
+.profile-container .form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.profile-container .save-btn {
+  padding: 12px 24px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.profile-container .save-btn:hover {
+  background-color: #333;
+}
+
+.profile-container .save-btn:active {
+  transform: scale(0.98);
+}
+
+.profile-container .save-btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.profile-container .status-message-container {
+  flex: 1;
+}
+
+.profile-container .status-message {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 80%;
+}
+
+.profile-container .status-message.success {
+  background-color: #e6f8e6;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.profile-container .status-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+@media (max-width: 600px) {
+  .profile-container .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profile-container .form-actions {
+    flex-direction: column-reverse;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .profile-container .status-message {
+    max-width: 100%;
+    text-align: center;
+  }
+}
