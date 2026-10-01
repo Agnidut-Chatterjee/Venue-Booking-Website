@@ -29,7 +29,7 @@ function AdminLogin() {
     setMessage(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/admin/send-otp', {
+      const response = await fetch('/api/admin/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -57,7 +57,7 @@ function AdminLogin() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/admin/login', {
+      const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, securityCode }),

@@ -24,7 +24,7 @@ const AdminBookingManagement = () => {
   const fetchBookings = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get('http://localhost:5000/api/admin/bookings');
+      const { data } = await axios.get('/api/admin/bookings');
       
       if (data.success && data.bookings) {
         setBookings(data.bookings);
@@ -43,7 +43,7 @@ const AdminBookingManagement = () => {
   const handleStatusChange = async (id, newStatus) => {
     if (window.confirm(`Are you sure you want to mark this booking as ${newStatus}?`)) {
       try {
-        await axios.put(`http://localhost:5000/api/admin/bookings/${id}/status`, { status: newStatus });
+        await axios.put(`/api/admin/bookings/${id}/status`, { status: newStatus });
         fetchBookings(); // Refresh the list
       } catch (err) {
         console.error('Error updating status:', err);
@@ -70,7 +70,7 @@ const AdminBookingManagement = () => {
 
   const saveEditHandler = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/bookings/${id}`, editFormData);
+      await axios.put(`/api/admin/bookings/${id}`, editFormData);
       setEditingBookingId(null);
       fetchBookings();
     } catch (err) {

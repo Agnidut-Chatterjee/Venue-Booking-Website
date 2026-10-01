@@ -51,7 +51,7 @@ const BookingPage = () => {
         charges: formData.charges
       };
 
-      const { data } = await axios.post("http://localhost:5000/api/bookings", bookingData);
+      const { data } = await axios.post("/api/bookings", bookingData);
 
       if (data.success) {
         alert("Booking request sent successfully! An admin will review it shortly.");

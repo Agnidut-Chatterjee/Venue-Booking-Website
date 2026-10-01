@@ -23,9 +23,9 @@ const Transaction = () => {
     const fetchTransactionHistory = async () => {
       try {
         setError(null);
-        // Note: Change to http://localhost:5000/api... if your backend is on a different port locally
+        // Note: Change to /api... if your backend is on a different port locally
        // Replace 5000 with whatever port your Express server actually uses (e.g., 4000, 8000)
-        const response = await fetch(`http://localhost:5000/api/bookings/user/${userId}`);
+        const response = await fetch(`/api/bookings/user/${userId}`);
         
         if (!response.ok) {
           throw new Error(`Server responded with status: ${response.status}`);

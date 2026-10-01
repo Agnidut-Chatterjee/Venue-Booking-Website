@@ -24,8 +24,7 @@ function Contact() {
     setStatus({ loading: true, success: false, error: null });
 
     try {
-      // Assuming your backend is running on the same localhost:5000 setup
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

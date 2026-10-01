@@ -18,7 +18,7 @@ function ForgotPassword() {
     e.preventDefault(); 
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/forgot-password", {
+      const response = await fetch("/api/auth/forgot-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function ForgotPassword() {
 
     try {
       // NOTE: We will build this route on the backend next!
-      const response = await fetch("http://localhost:5000/api/auth/reset-password", {
+      const response = await fetch("/api/auth/reset-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -34,7 +34,7 @@ const AdminUserManagement = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get('http://localhost:5000/api/users');
+      const { data } = await axios.get('/api/users');
       
       if (Array.isArray(data)) {
         setUsers(data);
@@ -75,7 +75,7 @@ const AdminUserManagement = () => {
 
   const saveEditHandler = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/users/${id}`, editFormData);
+      await axios.put(`/api/users/${id}`, editFormData);
       setEditingUserId(null); 
       fetchUsers(); 
     } catch (err) {
@@ -88,7 +88,7 @@ const AdminUserManagement = () => {
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure you want to delete this account?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/users/${id}`);
+        await axios.delete(`/api/users/${id}`);
         fetchUsers(); 
       } catch (err) {
         console.error('Error deleting user:', err);
@@ -104,7 +104,7 @@ const AdminUserManagement = () => {
     setLoadingBookings(true);
 
     try {
-      const { data } = await axios.get('http://localhost:5000/api/admin/bookings');
+      const { data } = await axios.get('/api/admin/bookings');
       
       if (data.success && data.bookings) {
         const filteredBookings = data.bookings.filter(

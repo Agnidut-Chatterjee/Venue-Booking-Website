@@ -23,7 +23,7 @@ function Home() {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/venues");
+        const response = await fetch("/api/venues");
         const data = await response.json();
         
         setVenues(data);
@@ -136,7 +136,7 @@ const formattedDate = `${year}-${month}-${day}`;
               style={{ cursor: "pointer" }}
             >
               <img
-                src={venue.images && venue.images.length > 0 ? `http://localhost:5000${venue.images[0]}` : ""}
+                src={venue.images && venue.images.length > 0 ? `${venue.images[0]}` : ""}
                 alt={venue.venueName}
                 className="venue-image"
               />
@@ -174,7 +174,7 @@ const formattedDate = `${year}-${month}-${day}`;
                   {activeImageIndex > 0 && (
                     <button onClick={handlePrevImage} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", color: "white", border: "none", borderRadius: "50%", width: "35px", height: "35px", cursor: "pointer", fontSize: "1.2rem", zIndex: 10 }}>❮</button>
                   )}
-                  <img src={`http://localhost:5000${selectedVenue.images[activeImageIndex]}`} alt={selectedVenue.venueName} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "opacity 0.2s ease-in-out" }} />
+                  <img src={`${selectedVenue.images[activeImageIndex]}`} alt={selectedVenue.venueName} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "opacity 0.2s ease-in-out" }} />
                   {activeImageIndex < selectedVenue.images.length - 1 && (
                     <button onClick={handleNextImage} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", color: "white", border: "none", borderRadius: "50%", width: "35px", height: "35px", cursor: "pointer", fontSize: "1.2rem", zIndex: 10 }}>❯</button>
                   )}
@@ -183,7 +183,7 @@ const formattedDate = `${year}-${month}-${day}`;
                 {/* Thumbnails */}
                 <div style={{ display: "flex", gap: "10px", marginTop: "15px", overflowX: "auto", paddingBottom: "5px" }}>
                   {selectedVenue.images.map((imgUrl, index) => (
-                    <img key={index} src={`http://localhost:5000${imgUrl}`} alt={`${selectedVenue.venueName} thumbnail ${index + 1}`} onClick={(e) => handleThumbnailClick(e, index)} style={{ width: "80px", height: "60px", objectFit: "cover", borderRadius: "6px", cursor: "pointer", border: activeImageIndex === index ? "3px solid #ff5722" : "2px solid transparent", opacity: activeImageIndex === index ? 1 : 0.5, transition: "all 0.2s" }} />
+                    <img key={index} src={`${imgUrl}`} alt={`${selectedVenue.venueName} thumbnail ${index + 1}`} onClick={(e) => handleThumbnailClick(e, index)} style={{ width: "80px", height: "60px", objectFit: "cover", borderRadius: "6px", cursor: "pointer", border: activeImageIndex === index ? "3px solid #ff5722" : "2px solid transparent", opacity: activeImageIndex === index ? 1 : 0.5, transition: "all 0.2s" }} />
                   ))}
                 </div>
               </div>

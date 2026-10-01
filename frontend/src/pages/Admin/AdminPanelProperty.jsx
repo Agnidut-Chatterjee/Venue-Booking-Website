@@ -27,7 +27,7 @@ function AdminPanelProperty() {
 
   const fetchVenues = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/venues");
+      const response = await fetch("/api/venues");
       const data = await response.json();
       setVenues(data);
     } catch (error) {
@@ -94,8 +94,8 @@ function AdminPanelProperty() {
     });
 
     const url = isEditing 
-      ? `http://localhost:5000/api/venues/${editId}` 
-      : "http://localhost:5000/api/venues";
+      ? `/api/venues/${editId}` 
+      : "/api/venues";
     
     const method = isEditing ? "PUT" : "POST";
 
@@ -141,7 +141,7 @@ function AdminPanelProperty() {
   const handleDelete = async (id) => {
     if(window.confirm("Are you sure you want to delete this property?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/venues/${id}`, { method: "DELETE" });
+        const response = await fetch(`/api/venues/${id}`, { method: "DELETE" });
         if (response.ok) fetchVenues();
       } catch (error) {
         console.error("Error deleting venue:", error);
@@ -248,7 +248,7 @@ function AdminPanelProperty() {
                   <td style={{ padding: "12px" }}>
                     <img
                       // The URL now points to your backend server
-                      src={`http://localhost:5000${venue.images && venue.images.length > 0 ? venue.images[0] : ""}`}
+                      src={`${venue.images && venue.images.length > 0 ? venue.images[0] : ""}`}
                       alt={venue.venueName}
                       style={{ width: "60px", height: "40px", objectFit: "cover", borderRadius: "4px", backgroundColor: "#eee" }}
                     />
