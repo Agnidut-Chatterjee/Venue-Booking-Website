@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    image: agnidut/my-backend:latest
+    restart: always
+    environment:
+      - PORT=5000
+    expose:
+      - "5000"
+
+  frontend:
+    image: agnidut/my-frontend:latest
+    restart: always
+    ports:
+      - "80:80"
